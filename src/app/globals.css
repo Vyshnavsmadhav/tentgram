@@ -1,0 +1,42 @@
+:root {
+  --background: #050a0f;
+  --foreground: #f4f4f4;
+  --accent: #dca774;
+  --accent-hover: #c48f5e;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --overlay: rgba(0, 0, 0, 0.5);
+}
+
+:root.light-mode {
+  --background: #fdfdfd;
+  --foreground: #1a202c;
+  --accent: #c08552;
+  --accent-hover: #a16c41;
+  --card-bg: rgba(0, 0, 0, 0.05);
+  --border-color: rgba(0, 0, 0, 0.1);
+  --overlay: rgba(255, 255, 255, 0.7);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-playfair), serif;
+  font-weight: 400;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

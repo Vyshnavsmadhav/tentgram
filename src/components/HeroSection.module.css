@@ -1,0 +1,208 @@
+.heroSection {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 8rem;
+  color: var(--foreground);
+}
+
+.backgroundContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.bgMedia {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.8s ease;
+}
+
+.nightBg {
+  opacity: 1;
+}
+
+.dayBg {
+  opacity: 0;
+}
+
+:global(.light-mode) .nightBg {
+  opacity: 0;
+}
+
+:global(.light-mode) .dayBg {
+  opacity: 1;
+}
+
+.backgroundVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(5, 10, 15, 0.8) 0%, rgba(5, 10, 15, 0.2) 50%, rgba(5, 10, 15, 0.1) 100%);
+  background: radial-gradient(circle at 30% 50%, rgba(5, 10, 15, 0.6) 0%, rgba(5, 10, 15, 0) 60%),
+              linear-gradient(to top, var(--background) 0%, transparent 20%);
+  transition: background 0.8s ease;
+}
+
+:global(.light-mode) .overlay {
+  background: transparent;
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  max-width: 600px;
+  margin-top: 5rem;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:global(.light-mode) .content {
+  transform: translate(35vw, -12vh);
+}
+
+.tagline {
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: 5rem;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.titleItalic {
+  font-style: italic;
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  opacity: 0.8;
+  margin-bottom: 2.5rem;
+}
+
+.ctaGroup {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.primaryButton {
+  background: var(--accent);
+  color: #050a0f;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.primaryButton:hover {
+  background: var(--accent-hover);
+  padding-right: 1.5rem;
+  padding-left: 2.5rem;
+}
+
+.arrowIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.watchStoryButton {
+  background: transparent;
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.watchStoryButton:hover {
+  opacity: 0.8;
+}
+
+.playIconContainer {
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s ease;
+}
+
+.watchStoryButton:hover .playIconContainer {
+  border-color: white;
+}
+
+.playIcon {
+  width: 14px;
+  height: 14px;
+  margin-left: 4px;
+}
+
+.pagination {
+  position: absolute;
+  right: 4rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+}
+
+.activePage {
+  color: white;
+}
+
+.pageLine {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.inactivePage {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+@media (max-width: 1024px) {
+  .heroSection {
+    padding: 0 2rem;
+  }
+  .title {
+    font-size: 3.5rem;
+  }
+  .pagination {
+    display: none;
+  }
+}

@@ -1,0 +1,218 @@
+.section {
+  padding: 6rem 4rem;
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+}
+
+.header {
+  flex: 0 0 300px;
+}
+
+.subtitle {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  text-transform: uppercase;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 3rem;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.titleItalic {
+  font-style: italic;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.8;
+  margin-bottom: 2rem;
+}
+
+.viewAll {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: gap 0.3s ease;
+}
+
+.viewAll:hover {
+  gap: 1rem;
+}
+
+.viewAll svg {
+  width: 18px;
+  height: 18px;
+}
+
+.carouselContainer {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.cards {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  scrollbar-width: none; /* Firefox */
+  flex: 1;
+  min-width: 0;
+}
+.cards::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  flex: 0 0 350px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.imageContainer {
+  position: relative;
+  height: 220px;
+  width: 100%;
+}
+
+.heartButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.heartButton svg {
+  width: 24px;
+  height: 24px;
+  transition: fill 0.3s ease;
+}
+
+.heartButton:hover svg {
+  fill: rgba(255, 255, 255, 0.3);
+}
+
+.cardInfo {
+  padding: 1.5rem;
+}
+
+.cardTitle {
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.cardMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.location svg {
+  width: 14px;
+  height: 14px;
+}
+
+.price {
+  text-align: right;
+}
+
+.priceLabel {
+  display: block;
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.priceAmount {
+  font-weight: 600;
+  color: white;
+  font-size: 0.95rem;
+}
+
+.priceNight {
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-left: 2rem;
+  flex-shrink: 0;
+}
+
+.navButton {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--foreground);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.navButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.navButton svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 1024px) {
+  .section {
+    flex-direction: column;
+    padding: 4rem 2rem;
+    gap: 2rem;
+  }
+  .header {
+    flex: auto;
+    width: 100%;
+  }
+  .carouselContainer {
+    width: 100%;
+  }
+  .navigation {
+    display: none; /* Hide for mobile to allow native scrolling */
+  }
+}

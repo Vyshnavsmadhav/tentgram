@@ -1,0 +1,79 @@
+.bannerContainer {
+  width: 100%;
+  padding: 0 4rem;
+  margin-top: -4rem; /* Overlap the hero section */
+  position: relative;
+  z-index: 20;
+}
+
+.banner {
+  background: rgba(10, 15, 20, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  display: flex;
+  padding: 2.5rem;
+  justify-content: space-between;
+}
+
+.featureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  flex: 1;
+  position: relative;
+}
+
+.iconContainer {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.iconContainer svg {
+  width: 100%;
+  height: 100%;
+}
+
+.textContainer {
+  padding-right: 2rem;
+}
+
+.title {
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 500;
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  line-height: 1.5;
+}
+
+.divider {
+  position: absolute;
+  right: 1.5rem;
+  top: 10%;
+  height: 80%;
+  width: 1px;
+  background: var(--border-color);
+}
+
+@media (max-width: 1024px) {
+  .bannerContainer {
+    padding: 0 1rem;
+  }
+  .banner {
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 1.5rem;
+  }
+  .featureItem {
+    min-width: calc(50% - 2rem);
+  }
+  .divider {
+    display: none;
+  }
+}
