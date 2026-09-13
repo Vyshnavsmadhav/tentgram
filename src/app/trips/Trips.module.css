@@ -1,0 +1,163 @@
+.hero {
+  position: relative;
+  width: 100vw;
+  height: 50vh;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: -120px;
+}
+
+.heroImageContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.heroImage {
+  object-fit: cover;
+  filter: brightness(0.6);
+  animation: scaleIn 2s ease forwards;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  padding: 0 2rem;
+  max-width: 800px;
+  margin-top: 100px;
+}
+
+.heroSubtitle {
+  display: block;
+  font-size: 1rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  color: var(--accent);
+  animation: fadeInUp 0.8s ease forwards 0.2s;
+  opacity: 0;
+}
+
+.heroTitle {
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-family: var(--font-playfair);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 0.8s ease forwards 0.4s;
+  opacity: 0;
+}
+
+.container {
+  padding: 6rem 4rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.row {
+  display: flex;
+  gap: 4rem;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  align-items: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: fadeInUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+.row:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.rowReverse {
+  flex-direction: row-reverse;
+}
+
+.imageSection {
+  flex: 1;
+  min-height: 450px;
+  position: relative;
+  overflow: hidden;
+}
+
+.image {
+  transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.row:hover .image {
+  transform: scale(1.05);
+}
+
+.contentSection {
+  flex: 1;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.expTitle {
+  font-size: 3rem;
+  font-family: var(--font-playfair);
+  margin-bottom: 1.5rem;
+  color: var(--accent);
+}
+
+.expDesc {
+  opacity: 0.8;
+  margin-bottom: 2.5rem;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  color: var(--foreground);
+}
+
+.button {
+  align-self: flex-start;
+  background: transparent;
+  color: var(--foreground);
+  border: 1px solid var(--accent);
+  padding: 1rem 2.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 30px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.button:hover::before {
+  width: 100%;
+}
+
+.button:hover {
+  color: #000;
+}

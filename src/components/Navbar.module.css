@@ -107,6 +107,61 @@
   height: 28px;
 }
 
+.dropdownContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdownButton {
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, color 0.3s ease;
+  background: none;
+  border: none;
+  color: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dropdownButton:hover,
+.dropdownButton.active {
+  opacity: 1;
+  color: var(--accent);
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: -10px;
+  background: var(--background);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  min-width: 160px;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0;
+  margin-top: 1.5rem;
+  z-index: 101;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.dropdownItem {
+  padding: 0.75rem 1.25rem;
+  color: inherit;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdownItem:hover {
+  background-color: var(--card-bg);
+  color: var(--accent);
+}
+
 @media (max-width: 1024px) {
   .navLinks {
     display: none;

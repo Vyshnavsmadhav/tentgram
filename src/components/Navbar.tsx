@@ -7,9 +7,21 @@ import styles from './Navbar.module.css';
 export default function Navbar() {
   const [isLightMode, setIsLightMode] = useState(false);
 
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
   useEffect(() => {
     // Check initial state from DOM
     setIsLightMode(document.documentElement.classList.contains('light-mode'));
+    
+    // Close dropdown on click outside
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest(`.${styles.dropdownContainer}`)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
   }, []);
 
   const toggleTheme = () => {
@@ -37,12 +49,31 @@ export default function Navbar() {
       </div>
 
       <div className={styles.navLinks}>
-        <Link href="#" className={styles.navLink}>Destinations</Link>
-        <Link href="#" className={styles.navLink}>Stays</Link>
-        <Link href="#" className={styles.navLink}>Experiences</Link>
-        <Link href="#" className={styles.navLink}>About Us</Link>
-        <Link href="#" className={styles.navLink}>Gallery</Link>
-        <Link href="#" className={styles.navLink}>Contact</Link>
+        <div className={styles.dropdownContainer}>
+          <button 
+            className={`${styles.dropdownButton} ${isDropdownOpen ? styles.active : ''}`}
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+          >
+            Tentgram
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transform: isDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s ease' }}>
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          
+          {isDropdownOpen && (
+            <div className={styles.dropdownMenu}>
+              <Link href="/stays" className={styles.dropdownItem} onClick={() => setIsDropdownOpen(false)}>Stays</Link>
+              <Link href="/events" className={styles.dropdownItem} onClick={() => setIsDropdownOpen(false)}>Event</Link>
+              <Link href="/experiences" className={styles.dropdownItem} onClick={() => setIsDropdownOpen(false)}>Experience</Link>
+              <Link href="/trips" className={styles.dropdownItem} onClick={() => setIsDropdownOpen(false)}>Trip</Link>
+            </div>
+          )}
+        </div>
+        
+        <Link href="/destinations" className={styles.navLink}>Destinations</Link>
+        <Link href="/about" className={styles.navLink}>About Us</Link>
+        <Link href="/gallery" className={styles.navLink}>Gallery</Link>
+        <Link href="/contact" className={styles.navLink}>Contact</Link>
       </div>
 
       <div className={styles.actions}>
